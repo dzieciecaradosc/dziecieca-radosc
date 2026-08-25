@@ -1,0 +1,19 @@
+# System / OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Env / secrets
+.env
+.env.local
+
+# Vercel
+.vercel
