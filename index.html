@@ -229,74 +229,101 @@
     color:var(--ink-soft);font-size:1.08rem;font-weight:600;margin:0;
   }
 
-  /* ---------- CO ZNAJDZIESZ (tiles) ---------- */
-  .tiles{
+  /* ---------- HISTORIE (kafelki) ---------- */
+  .stories{
     display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
   }
-  @media(max-width:900px){.tiles{grid-template-columns:1fr 1fr;}}
-  @media(max-width:520px){.tiles{grid-template-columns:1fr;}}
-  .tile{
+  @media(max-width:900px){.stories{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.stories{grid-template-columns:1fr;}}
+  .story-tile{
     background:#fff;
     border:1px solid var(--line);
     border-radius:var(--radius);
-    padding:30px 24px;
-    position:relative;
-    transition:transform .15s ease, box-shadow .15s ease;
-  }
-  .tile:hover{transform:translateY(-6px);box-shadow:0 18px 30px rgba(31,78,74,0.12);}
-  .tile .icon{
-    width:52px;height:52px;border-radius:16px;
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.5rem;margin-bottom:18px;
-  }
-  .tile h3{font-size:1.2rem;color:var(--ink);margin-bottom:8px;}
-  .tile p{color:var(--ink-soft);font-size:.96rem;font-weight:600;margin:0;line-height:1.5;}
-  .tile:nth-child(1) .icon{background:#FFE7DD;}
-  .tile:nth-child(2) .icon{background:#DFF2EF;}
-  .tile:nth-child(3) .icon{background:#FFF1C4;}
-  .tile:nth-child(4) .icon{background:#FBDCE7;}
-
-  /* ---------- WYRÓŻNIONE (produkt) ---------- */
-  .product-card{
-    background:#fff;
-    border-radius:28px;
-    padding:36px;
-    display:grid;
-    grid-template-columns:0.6fr 1.4fr;
-    gap:36px;
-    align-items:center;
-    border:1px solid var(--line);
-    box-shadow:0 20px 40px rgba(31,78,74,0.08);
-  }
-  @media(max-width:760px){
-    .product-card{grid-template-columns:1fr;text-align:center;}
-  }
-  .product-cover{
-    width:100%;
-    aspect-ratio:3/4;
-    border-radius:18px;
     overflow:hidden;
-    box-shadow:0 12px 24px rgba(0,0,0,0.18);
+    display:flex;flex-direction:column;
+    transition:transform .15s ease, box-shadow .15s ease;
+    text-align:left;
   }
-  .product-cover img{width:100%;height:100%;object-fit:cover;}
-  .free-badge{
+  .story-tile.active:hover{transform:translateY(-6px);box-shadow:0 18px 30px rgba(31,78,74,0.15);}
+  .story-thumb{
+    aspect-ratio:4/3;
+    overflow:hidden;
+    background:#EAF2E9;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .story-thumb img{width:100%;height:100%;object-fit:cover;}
+  .story-body{padding:20px;flex:1;display:flex;flex-direction:column;}
+  .story-body h3{font-size:1.1rem;color:var(--ink);margin-bottom:8px;line-height:1.2;}
+  .story-body p{color:var(--ink-soft);font-size:.92rem;font-weight:600;margin:0 0 14px;line-height:1.5;}
+  .story-age{
+    display:inline-block;align-self:flex-start;
+    background:#FFF1C4;color:#8A6A00;
+    padding:4px 12px;border-radius:100px;
+    font-weight:800;font-size:.75rem;margin-bottom:12px;
+  }
+  .story-link{
+    margin-top:auto;
+    font-weight:800;color:var(--coral-dark);font-size:.92rem;
+  }
+  /* kafelki "wkrótce" */
+  .story-tile.soon{
+    background:#FBF7EE;
+    border-style:dashed;
+    border-color:#DDD2BC;
+  }
+  .story-tile.soon .story-thumb{
+    background:repeating-linear-gradient(45deg,#F3EADA,#F3EADA 12px,#EFE4D0 12px,#EFE4D0 24px);
+    font-family:'Baloo 2',cursive;color:#B8A88C;font-size:2rem;
+  }
+  .story-tile.soon h3{color:#A89880;}
+  .soon-tag{
+    display:inline-block;
+    background:#E9E0CE;color:#8A7A5E;
+    padding:4px 12px;border-radius:100px;
+    font-weight:800;font-size:.75rem;
+  }
+
+  /* ---------- PRODUKTY HISTORII ---------- */
+  .offer-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;
+  }
+  @media(max-width:860px){.offer-grid{grid-template-columns:1fr;}}
+  .offer-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:28px;
+    padding:34px;
+    display:flex;flex-direction:column;
+  }
+  .offer-card.paid{
+    border:2px solid var(--coral);
+    box-shadow:0 20px 40px rgba(255,127,92,0.14);
+    position:relative;
+  }
+  .offer-badge{
     display:inline-flex;align-items:center;gap:6px;
-    background:#DFF2EF;color:var(--teal-deep);
     padding:6px 16px;border-radius:100px;
-    font-weight:800;font-size:.8rem;letter-spacing:.02em;
-    margin-bottom:14px;
+    font-weight:800;font-size:.78rem;letter-spacing:.02em;
+    margin-bottom:16px;align-self:flex-start;
   }
-  .product-card h3{font-size:1.6rem;color:var(--ink);margin-bottom:10px;}
-  .product-card p{color:var(--ink-soft);font-weight:600;line-height:1.55;margin-bottom:22px;}
-  .btn-download{
-    display:inline-flex;align-items:center;gap:10px;
-    background:var(--coral);color:#fff;
-    font-weight:800;font-size:1rem;
-    padding:15px 28px;border-radius:14px;
-    box-shadow:0 8px 0 var(--coral-dark);
-    transition:transform .12s ease, box-shadow .12s ease;
+  .badge-free{background:#DFF2EF;color:var(--teal-deep);}
+  .badge-paid{background:var(--coral);color:#fff;}
+  .offer-card h3{font-size:1.4rem;color:var(--ink);margin-bottom:12px;}
+  .offer-card .price{
+    font-family:'Baloo 2',cursive;font-weight:800;
+    font-size:2rem;color:var(--coral-dark);margin-bottom:14px;
   }
-  .btn-download:hover{transform:translateY(2px);box-shadow:0 6px 0 var(--coral-dark);}
+  .offer-card .price small{font-size:1rem;color:var(--ink-soft);font-family:'Nunito',sans-serif;font-weight:700;}
+  .offer-list{list-style:none;padding:0;margin:0 0 26px;}
+  .offer-list li{
+    color:var(--ink-soft);font-weight:600;font-size:.96rem;
+    padding:7px 0 7px 28px;position:relative;line-height:1.45;
+  }
+  .offer-list li::before{
+    content:"✓";position:absolute;left:0;top:7px;
+    color:var(--teal-deep);font-weight:800;
+  }
+  .offer-card .btn{margin-top:auto;justify-content:center;width:100%;}
 
   /* ---------- BLOG ---------- */
   .blog-grid{
@@ -376,11 +403,11 @@
     <a href="#" class="brand"><span class="dot"></span><span class="rainbow-text">Dziecięca Radość</span></a>
     <div class="nav-links">
       <ul>
-        <li><a href="#co-znajdziesz">Materiały</a></li>
+        <li><a href="#historie">Historie</a></li>
         <li><a href="#blog">Poradniki</a></li>
         <li><a href="#o-nas">O nas</a></li>
       </ul>
-      <a href="#co-znajdziesz" class="nav-cta">Zobacz materiały</a>
+      <a href="#historie" class="nav-cta">Zobacz materiały</a>
     </div>
   </div>
 </nav>
@@ -396,8 +423,8 @@
   <div class="wrap hero-inner">
     <div>
       <h1>Kolorowanki i karty pracy, które uczą <span class="accent">przez zabawę</span></h1>
-      <p class="lede">Drukujesz, dziecko się bawi i uczy — a Ty masz chwilę spokoju. Bez subskrypcji, bez zbędnych kliknięć.</p>
-      <a href="#co-znajdziesz" class="btn btn-primary">Zobacz materiały</a>
+      <p class="lede">Drukujesz, bawicie się razem, a nauka dzieje się sama przy okazji. Bez subskrypcji, bez zbędnych kliknięć.</p>
+      <a href="#historie" class="btn btn-primary">Zobacz materiały</a>
     </div>
     <div class="hero-art">
       <div class="art-card">
@@ -412,52 +439,99 @@
   </div>
 </header>
 
-<!-- CO ZNAJDZIESZ -->
-<section class="section" id="co-znajdziesz">
+<!-- HISTORIE -->
+<section class="section" id="historie">
   <div class="wrap">
     <div class="section-head">
-      <span class="kicker">Oferta</span>
-      <h2>Co znajdziesz na Dziecięcej Radości</h2>
-      <p>Materiały do druku, gotowe w kilka minut — od kolorowanek po karty pracy dopasowane do wieku dziecka.</p>
+      <span class="kicker">Nasze historie</span>
+      <h2>Wybierz świat, do którego wejdziecie razem</h2>
+      <p>Każda historia to kompletny zestaw: bajka, karty pracy, kolorowanki i piosenki — wszystko wokół jednego przygody i jednej ważnej lekcji.</p>
     </div>
-    <div class="tiles">
-      <div class="tile">
-        <div class="icon">🖍️</div>
-        <h3>Kolorowanki</h3>
-        <p>Kreatywna zabawa z kredkami dla najmłodszych.</p>
+    <div class="stories">
+
+      <a href="#igor-dinozaury" class="story-tile active">
+        <div class="story-thumb">
+          <img src="/materialy/igor-swiat-dinozaurow.jpg" alt="Igor w świecie dinozaurów">
+        </div>
+        <div class="story-body">
+          <span class="story-age">6-7 lat</span>
+          <h3>Igor w świecie dinozaurów</h3>
+          <p>Chłopiec, mały triceratops i przygoda o odwadze, przyjaźni i sile współpracy.</p>
+          <span class="story-link">Zobacz materiały →</span>
+        </div>
+      </a>
+
+      <div class="story-tile soon">
+        <div class="story-thumb">?</div>
+        <div class="story-body">
+          <span class="soon-tag">Wkrótce</span>
+          <h3 style="margin-top:12px;">Kolejna historia</h3>
+          <p>Pracujemy nad następnym światem do wspólnego odkrywania.</p>
+        </div>
       </div>
-      <div class="tile">
-        <div class="icon">🔢</div>
-        <h3>Karty pracy</h3>
-        <p>Nauka liczb, liter i logiki przez zadania.</p>
+
+      <div class="story-tile soon">
+        <div class="story-thumb">?</div>
+        <div class="story-body">
+          <span class="soon-tag">Wkrótce</span>
+          <h3 style="margin-top:12px;">Kolejna historia</h3>
+          <p>Pracujemy nad następnym światem do wspólnego odkrywania.</p>
+        </div>
       </div>
-      <div class="tile">
-        <div class="icon">🎄</div>
-        <h3>Materiały sezonowe</h3>
-        <p>Święta, urodziny, pory roku.</p>
+
+      <div class="story-tile soon">
+        <div class="story-thumb">?</div>
+        <div class="story-body">
+          <span class="soon-tag">Wkrótce</span>
+          <h3 style="margin-top:12px;">Kolejna historia</h3>
+          <p>Pracujemy nad następnym światem do wspólnego odkrywania.</p>
+        </div>
       </div>
-      <div class="tile">
-        <div class="icon">💡</div>
-        <h3>Poradniki dla rodziców</h3>
-        <p>Sprawdzone sposoby na naukę w domu.</p>
-      </div>
+
     </div>
   </div>
 </section>
 
-<!-- WYRÓŻNIONY PRODUKT (darmowy) -->
-<section class="section" style="padding-top:0;">
+<!-- MATERIAŁY: IGOR W ŚWIECIE DINOZAURÓW -->
+<section class="section" id="igor-dinozaury" style="padding-top:0;">
   <div class="wrap">
-    <div class="product-card">
-      <div class="product-cover">
-        <img src="/materialy/przygody-z-matematyka-dinozaury.jpg" alt="Przygody z Matematyką - okładka">
+    <div class="section-head">
+      <span class="kicker">Igor w świecie dinozaurów</span>
+      <h2>Dwa sposoby, żeby zacząć</h2>
+      <p>Zacznijcie od bezpłatnego zestawu, a jeśli spodoba się Wam wspólne czytanie — czeka pełna, rozbudowana przygoda.</p>
+    </div>
+
+    <div class="offer-grid">
+
+      <!-- DARMOWY -->
+      <div class="offer-card">
+        <span class="offer-badge badge-free">Bezpłatnie</span>
+        <h3>Zestaw startowy</h3>
+        <div class="price">0 zł <small>/ pobierasz od razu</small></div>
+        <ul class="offer-list">
+          <li>Bajka „Igor i Tup: Przyjaciele z Krainy Dinozaurów" (10 stron)</li>
+          <li>Zeszyt „Przygody z Matematyką" — liczenie, dodawanie, odejmowanie (10 stron)</li>
+          <li>2 kolorowanki ze scenami z bajki</li>
+          <li>Piosenka na dobranoc „Śpij, mój odkrywco"</li>
+        </ul>
+        <a href="/materialy/Pakiet-Dinozaury-Free.zip" download class="btn btn-primary">⬇ Pobierz za darmo</a>
       </div>
-      <div>
-        <span class="free-badge">🎁 Bezpłatny pakiet startowy</span>
-        <h3>Pakiet Dinozaury — Zeszyt, Bajka, Piosenka i Kolorowanki</h3>
-        <p>10-stronicowy zeszyt ćwiczeń matematycznych (klasa 1, 6-7 lat), bajka na dobranoc "Igor i Tup" z pytaniami do wspólnej rozmowy podczas czytania, piosenka "Śpij, mój odkrywco" oraz 2 proste kolorowanki ze scenami z bajki. Cztery materiały, jeden bezpłatny pakiet. Wydrukuj, poczytaj, posłuchaj i pokoloruj razem z dzieckiem!</p>
-        <a href="/materialy/Pakiet-Dinozaury-Free.zip" download class="btn btn-download">⬇ Pobierz cały pakiet (ZIP)</a>
+
+      <!-- PŁATNY -->
+      <div class="offer-card paid">
+        <span class="offer-badge badge-paid">Pełna przygoda</span>
+        <h3>Jajo nad wodospadem</h3>
+        <div class="price">20 zł <small>+ podatek / jednorazowo</small></div>
+        <ul class="offer-list">
+          <li>Rozbudowana bajka „Jajo nad wodospadem" (15 stron) — o odwadze i sile współpracy</li>
+          <li>Wersja „Czytam sam" tej samej historii — sylaby w kolorach, dla dzieci uczących się czytać</li>
+          <li>15 stron kart pracy powiązanych z fabułą</li>
+          <li>10 kolorowanek ze scenami z przygody</li>
+          <li>Nowi bohaterowie: Kola, Fru i Szyjka</li>
+        </ul>
+        <a href="https://dzieciecaradosc.gumroad.com/l/jajo-nad-wodospadem" target="_blank" rel="noopener" class="btn btn-primary">Kup na Gumroad →</a>
       </div>
+
     </div>
   </div>
 </section>
@@ -506,7 +580,7 @@
       <div class="about-badge">DR</div>
       <div>
         <h2>O nas</h2>
-        <p>Dziecięca Radość powstała z prostego pomysłu — żeby nauka w domu była łatwa, przyjemna i nie wymagała drukarki za tysiąc złotych. Tworzymy materiały, które można wydrukować w kilka minut i cieszyć się wspólnym czasem z dzieckiem, z dala od ekranu.</p>
+        <p>Dziecięca Radość powstała z prostego pomysłu — żeby nauka w domu była łatwa, przyjemna. Tworzymy materiały, które można wydrukować w kilka minut i cieszyć się wspólnym czasem z dzieckiem.</p>
       </div>
     </div>
   </div>
