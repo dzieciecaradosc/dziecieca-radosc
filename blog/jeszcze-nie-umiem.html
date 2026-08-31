@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>„Nie umiem" a „Jeszcze nie umiem" — Dziecięca Radość</title>
+<meta name="description" content="Jedna różnica, a tak wiele zmienia. Praktyczna wskazówka dla rodziców o tym, jak jedno słowo zmienia nastawienie dziecka.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-deep:#1F4E4A;
+    --teal-deep-2:#153a37;
+    --paper:#FFFBF2;
+    --coral:#FF7F5C;
+    --coral-dark:#E8613F;
+    --yellow:#FFC94D;
+    --ink:#26211D;
+    --ink-soft:#5B534C;
+    --line:#E7DFD0;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Nunito',sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Baloo 2',cursive;font-weight:700;line-height:1.15;margin:0;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(31,78,74,0.96);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  nav .inner{
+    max-width:1120px;margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{
+    font-family:'Baloo 2',cursive;font-weight:800;font-size:1.4rem;
+    display:flex;align-items:center;gap:8px;
+  }
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--coral);}
+  .rainbow-text{
+    background:linear-gradient(to bottom,
+      #FF5C5C 0 16.66%, #FF9A3C 16.66% 33.33%, #FFD93C 33.33% 50%,
+      #4CD97C 50% 66.66%, #4CB6FF 66.66% 83.33%, #B073FF 83.33% 100%);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;color:transparent;
+  }
+  .nav-back{
+    color:#DCEAE8;font-weight:700;font-size:.95rem;
+  }
+  .nav-back:hover{color:var(--yellow);}
+
+  /* HEADER ARTYKUŁU */
+  .article-head{
+    background:var(--teal-deep);
+    color:#fff;
+    padding:64px 0 72px;
+    text-align:center;
+  }
+  .article-tag{
+    display:inline-block;
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.28);
+    padding:6px 18px;border-radius:100px;
+    font-weight:800;font-size:.78rem;letter-spacing:.06em;
+    text-transform:uppercase;margin-bottom:20px;
+  }
+  .article-head h1{
+    font-size:clamp(1.9rem,4.4vw,2.7rem);
+    margin-bottom:16px;
+  }
+  .article-head p{
+    color:#CFE6E3;font-weight:600;font-size:1.05rem;
+    max-width:520px;margin:0 auto;
+  }
+
+  /* TREŚĆ */
+  article{padding:56px 0 40px;}
+  article p{
+    font-size:1.08rem;line-height:1.72;color:var(--ink);
+    margin:0 0 22px;
+  }
+  article h2{
+    font-size:1.5rem;color:var(--teal-deep);
+    margin:44px 0 16px;
+  }
+  article ul{padding-left:0;list-style:none;margin:0 0 24px;}
+  article ul li{
+    font-size:1.05rem;line-height:1.6;color:var(--ink);
+    padding:8px 0 8px 30px;position:relative;
+  }
+  article ul li::before{
+    content:"•";position:absolute;left:8px;top:8px;
+    color:var(--coral);font-weight:800;font-size:1.2rem;
+  }
+  blockquote{
+    margin:28px 0;padding:24px 28px;
+    background:#fff;border-left:5px solid var(--coral);
+    border-radius:0 18px 18px 0;
+    box-shadow:0 8px 20px rgba(31,78,74,0.06);
+  }
+  blockquote p{margin:0 0 12px;font-size:1.05rem;}
+  blockquote p:last-child{margin:0;}
+  blockquote strong{color:var(--coral-dark);}
+  .lead{
+    font-size:1.18rem;line-height:1.68;color:var(--ink);
+    font-weight:600;
+  }
+  .note{
+    margin-top:44px;padding-top:28px;
+    border-top:1px solid var(--line);
+    font-style:italic;color:var(--ink-soft);
+    font-size:.98rem;line-height:1.6;font-weight:600;
+  }
+  .back-cta{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--coral);color:#fff;
+    font-weight:800;font-size:1rem;
+    padding:15px 28px;border-radius:14px;
+    box-shadow:0 8px 0 var(--coral-dark);
+    margin:36px 0 12px;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .back-cta:hover{transform:translateY(2px);box-shadow:0 6px 0 var(--coral-dark);}
+
+  /* FOOTER */
+  footer{
+    background:#102B28;color:#DCEAE8;
+    padding:48px 0 30px;margin-top:56px;
+  }
+  footer .wrap{max-width:1120px;}
+  .footer-top{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:20px;
+    padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,0.12);
+    margin-bottom:22px;
+  }
+  .footer-brand{font-family:'Baloo 2',cursive;font-weight:800;font-size:1.3rem;}
+  .footer-links{display:flex;gap:16px;}
+  .footer-links a{
+    width:42px;height:42px;border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:.9rem;
+    border:1px solid rgba(255,255,255,0.15);
+    transition:background .15s ease, transform .15s ease;
+  }
+  .footer-links a:hover{background:var(--coral);border-color:var(--coral);transform:translateY(-2px);}
+  .footer-bottom{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:.85rem;color:#9FC0BC;
+  }
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1826296912077931');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1826296912077931&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a href="/" class="brand"><span class="dot"></span><span class="rainbow-text">Dziecięca Radość</span></a>
+    <a href="/#blog" class="nav-back">← Wróć na stronę główną</a>
+  </div>
+</nav>
+
+<header class="article-head">
+  <div class="wrap">
+    <span class="article-tag">Nastawienie</span>
+    <h1>„Nie umiem" a „Jeszcze nie umiem"</h1>
+    <p>Jedna różnica, a tak wiele zmienia.</p>
+  </div>
+</header>
+
+<article>
+  <div class="wrap">
+
+    <p class="lead">Znasz ten moment. Siadacie razem do zadania, dziecko patrzy na kartkę przez trzy sekundy, odsuwa ją i mówi: „nie umiem". Jeszcze nie spróbowało. Ołówek leży nietknięty.</p>
+
+    <p>I wtedy dzieje się jedna z dwóch rzeczy. Albo zaczynasz przekonywać („przecież umiesz, spróbuj!"), albo odpuszczasz, bo wieczór był długi i nie masz siły na kolejną walkę.</p>
+
+    <p>Znam to. I mam dla Ciebie coś, co zajmuje dosłownie sekundę, a potrafi zmienić cały ten moment.</p>
+
+    <h2>Co dziecko naprawdę mówi</h2>
+
+    <p>„Nie umiem" brzmi niewinnie, ale w głowie dziecka działa jak wyrok. To nie jest opis chwili — to opis siebie. <em>Taki już jestem. Nie jestem od matematyki. Inne dzieci umieją, ja nie.</em></p>
+
+    <p>Różnica jest ogromna:</p>
+
+    <ul>
+      <li><strong>„Nie umiem"</strong> → to zamknięta sprawa, koniec tematu</li>
+      <li><strong>„Jeszcze nie umiem"</strong> → to punkt na drodze, na której się właśnie znajdujesz</li>
+    </ul>
+
+    <p>Pierwsze zdanie kończy rozmowę. Drugie ją otwiera.</p>
+
+    <h2>Skąd to się bierze</h2>
+
+    <p>Przekonania o sobie tworzą się bardzo wcześnie — dużo wcześniej, niż nam się wydaje. Dziecko w wieku sześciu, siedmiu lat już potrafi mieć gotową opinię: „jestem słaby z czytania", „nie umiem liczyć". I najgorsze jest to, że takie zdanie potrafi zostać z człowiekiem na lata, mimo że dotyczyło jednej trudnej kartki w jednym zmęczonym wieczorze.</p>
+
+    <p>Dobra wiadomość: to działa też w drugą stronę. Sposób, w jaki dziecko mówi o swoich trudnościach, da się zmienić. I nie trzeba do tego kursów ani specjalistów.</p>
+
+    <h2>Ćwiczenie: dołóż jedno słowo</h2>
+
+    <p>Kiedy usłyszysz „nie umiem", nie zaprzeczaj. Nie mów „przecież umiesz" — bo dziecko w tym momencie naprawdę nie umie i wie o tym lepiej niż Ty.</p>
+
+    <p>Zamiast tego dołóż jedno słowo:</p>
+
+    <blockquote>
+      <p>„Nie umiem czytać." → „<strong>Jeszcze</strong> nie umiem czytać."</p>
+      <p>„Nie umiem tego policzyć." → „Tego <strong>jeszcze</strong> nie umiem policzyć."</p>
+      <p>„Nie potrafię narysować dinozaura." → „<strong>Jeszcze</strong> nie potrafię narysować dinozaura."</p>
+    </blockquote>
+
+    <p>Zauważ, że nic nie kłamiemy. Nie mówimy dziecku, że jest w czymś dobre, kiedy samo czuje, że nie jest. Mówimy prawdę — tylko pełną prawdę. Bo „nie umiem" to zdanie o dziś, nie o zawsze.</p>
+
+    <h2>Czego lepiej nie robić</h2>
+
+    <p>Dwie pułapki, w które łatwo wpaść:</p>
+
+    <p><strong>Nie poprawiaj dziecka.</strong> „Nie mów »nie umiem«, masz mówić »jeszcze nie umiem«" zamienia to w kolejny obowiązek i kolejną rzecz, którą dziecko robi źle. Efekt będzie odwrotny do zamierzonego.</p>
+
+    <p><strong>Nie używaj tego jako pocieszenia na siłę.</strong> Rzucone szybko „no jeszcze nie umiesz, spokojnie" w momencie, gdy dziecko jest naprawdę sfrustrowane, zabrzmi jak zbywanie. Czasem trzeba najpierw powiedzieć: „widzę, że to trudne" — i dopiero potem, spokojnie, dołożyć to jedno słowo.</p>
+
+    <h2>Najskuteczniejszy sposób: mów tak o sobie</h2>
+
+    <p>To działa lepiej niż jakiekolwiek tłumaczenie.</p>
+
+    <p>Dzieci uczą się języka z nasłuchu, nie z instrukcji. Jeśli Ty przy nich powiesz: „nie mogę tego rozgryźć... jeszcze", albo „jeszcze mi nie wychodzi to ciasto, ale coraz lepiej" — dziecko podłapie tę konstrukcję samo. Bez pouczania. Bez wykładu.</p>
+
+    <p>Po kilku tygodniach usłyszysz to zdanie od niego. Naprawdę.</p>
+
+    <h2>Dlaczego to takie ważne</h2>
+
+    <p>Bo tu nie chodzi o matematykę ani o czytanie.</p>
+
+    <p>Chodzi o to, czy dziecko wyrośnie na osobę, która widząc trudność myśli „to nie dla mnie", czy na taką, która myśli „jeszcze tego nie ogarniam". Pierwsza rezygnuje. Druga próbuje dalej.</p>
+
+    <p>Jedno słowo. Sekunda. A różnica zostaje na lata.</p>
+
+    <p class="note">W książeczce „Czytam sam" słowo JESZCZE pojawia się celowo — nie jako ozdobnik, tylko jako element, który dziecko ma usłyszeć i zapamiętać.</p>
+
+    <a href="/#igor-dinozaury" class="back-cta">Zobacz bezpłatne materiały →</a>
+
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand"><span class="rainbow-text">Dziecięca Radość</span></div>
+      <div class="footer-links">
+        <a href="https://www.facebook.com/profile.php?id=1342824698903723" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+        <a href="https://www.instagram.com/dzieciecaradosc2026" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="mailto:dzieciecaradosc.sklep@gmail.com" aria-label="E-mail">✉</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Dziecięca Radość</span>
+      <span>dzieciecaradosc.sklep@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

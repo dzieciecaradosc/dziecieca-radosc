@@ -324,6 +324,11 @@
     color:var(--teal-deep);font-weight:800;
   }
   .offer-card .btn{margin-top:auto;justify-content:center;width:100%;}
+  .offer-note{
+    font-size:.88rem;color:var(--ink-soft);font-weight:600;
+    font-style:italic;line-height:1.5;
+    margin:-10px 0 22px;
+  }
 
   /* ---------- BLOG ---------- */
   .blog-grid{
@@ -333,17 +338,25 @@
   .post{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius);
     overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:transform .15s ease, box-shadow .15s ease;
   }
+  a.post:hover{transform:translateY(-6px);box-shadow:0 18px 30px rgba(31,78,74,0.14);}
   .post-thumb{
     height:150px;
     background:linear-gradient(135deg,var(--yellow),var(--coral));
     display:flex;align-items:center;justify-content:center;
     font-family:'Baloo 2',cursive;color:rgba(255,255,255,0.85);font-size:.85rem;font-weight:700;
   }
-  .post-body{padding:22px;}
+  .thumb-jeszcze{
+    background:linear-gradient(135deg,var(--teal-deep),#3C7D6E);
+    color:#fff;font-size:1.9rem;letter-spacing:.08em;
+  }
+  .post-body{padding:22px;flex:1;display:flex;flex-direction:column;}
   .post-tag{font-size:.75rem;font-weight:800;color:var(--coral-dark);text-transform:uppercase;letter-spacing:.05em;}
   .post h4{font-family:'Baloo 2',cursive;font-size:1.1rem;margin:10px 0 8px;color:var(--ink);}
-  .post p{color:var(--ink-soft);font-size:.9rem;font-weight:600;margin:0;line-height:1.5;}
+  .post p{color:var(--ink-soft);font-size:.9rem;font-weight:600;margin:0 0 14px;line-height:1.5;}
+  .post-more{margin-top:auto;font-weight:800;color:var(--coral-dark);font-size:.9rem;}
 
   /* ---------- O NAS ---------- */
   .about{
@@ -383,7 +396,7 @@
     display:flex;align-items:center;justify-content:center;
     font-weight:700;font-size:.9rem;
     border:1px solid rgba(255,255,255,0.15);
-    transition:background .2s ease, border-color .2s ease, transform .2s ease;
+    transition:background .15s ease, transform .15s ease;
   }
   .footer-links a:hover{
     background:var(--coral);
@@ -395,12 +408,23 @@
     font-size:.85rem;color:#9FC0BC;
   }
 </style>
-
-<!-- Vercel Web Analytics -->
+<!-- Meta Pixel Code -->
 <script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1826296912077931');
+fbq('track', 'PageView');
 </script>
-<script defer src="/_vercel/insights/script.js"></script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1826296912077931&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -520,7 +544,8 @@
           <li>2 kolorowanki ze scenami z bajki</li>
           <li>Piosenka na dobranoc „Śpij, mój odkrywco"</li>
         </ul>
-        <a href="/materialy/Pakiet-Dinozaury-Free.zip" download class="btn btn-primary">⬇ Pobierz za darmo</a>
+        <p class="offer-note">Zestaw startowy to łagodne wprowadzenie — podstawy i rozgrzewka przed pełną przygodą.</p>
+        <a href="/materialy/Pakiet-Dinozaury-Free.zip" download class="btn btn-primary" onclick="if(window.fbq)fbq('track','Lead',{content_name:'Pakiet Dinozaury Free'});">⬇ Pobierz za darmo</a>
       </div>
 
       <!-- PŁATNY -->
@@ -531,11 +556,11 @@
         <ul class="offer-list">
           <li>Rozbudowana bajka „Jajo nad wodospadem" (15 stron) — o odwadze i sile współpracy</li>
           <li>Wersja „Czytam sam" tej samej historii — sylaby w kolorach, dla dzieci uczących się czytać</li>
-          <li>15 stron kart pracy powiązanych z fabułą</li>
+          <li>15 stron kart pracy powiązanych z fabułą — trudniejszych i bardziej różnorodnych niż w zestawie bezpłatnym</li>
           <li>20 kolorowanek ze scenami z przygody — 10 prostych i 10 rozbudowanych</li>
           <li>Nowi bohaterowie: Kola, Fru i Szyjka</li>
         </ul>
-        <a href="https://dzieciecaradosc.gumroad.com/l/jajo-nad-wodospadem" target="_blank" rel="noopener" class="btn btn-primary">Kup na Gumroad →</a>
+        <a href="https://dzieciecaradosc.gumroad.com/l/jajo-nad-wodospadem" target="_blank" rel="noopener" class="btn btn-primary" onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Jajo nad wodospadem',value:20,currency:'PLN'});">Kup na Gumroad →</a>
       </div>
 
     </div>
@@ -551,30 +576,15 @@
       <p>Krótkie, konkretne wskazówki — bez przegadanych artykułów.</p>
     </div>
     <div class="blog-grid">
-      <div class="post">
-        <div class="post-thumb">Wkrótce</div>
+      <a href="/blog/jeszcze-nie-umiem.html" class="post">
+        <div class="post-thumb thumb-jeszcze">JESZCZE</div>
         <div class="post-body">
-          <span class="post-tag">Nauka w domu</span>
-          <h4>Jak wprowadzać naukę liczb bez nudy</h4>
-          <p>Pierwszy wpis pojawi się tutaj już niedługo.</p>
+          <span class="post-tag">Nastawienie</span>
+          <h4>„Nie umiem" a „Jeszcze nie umiem"</h4>
+          <p>Jedna różnica, a tak wiele zmienia.</p>
+          <span class="post-more">Czytaj dalej →</span>
         </div>
-      </div>
-      <div class="post">
-        <div class="post-thumb">Wkrótce</div>
-        <div class="post-body">
-          <span class="post-tag">Kreatywność</span>
-          <h4>3 sposoby na deszczowe popołudnie</h4>
-          <p>Pierwszy wpis pojawi się tutaj już niedługo.</p>
-        </div>
-      </div>
-      <div class="post">
-        <div class="post-thumb">Wkrótce</div>
-        <div class="post-body">
-          <span class="post-tag">Organizacja</span>
-          <h4>Jak zorganizować kącik do nauki</h4>
-          <p>Pierwszy wpis pojawi się tutaj już niedługo.</p>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
