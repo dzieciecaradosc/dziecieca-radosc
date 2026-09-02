@@ -324,6 +324,24 @@
     color:var(--teal-deep);font-weight:800;
   }
   .offer-card .btn{margin-top:auto;justify-content:center;width:100%;}
+  .offer-preview{
+    display:block;
+    margin:0 0 20px;
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:#fff;
+    position:relative;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .offer-preview img{width:100%;height:auto;display:block;}
+  .offer-preview:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(31,78,74,0.14);}
+  .offer-preview-hint{
+    position:absolute;right:10px;bottom:10px;
+    background:rgba(38,33,29,0.72);color:#fff;
+    padding:5px 12px;border-radius:100px;
+    font-size:.74rem;font-weight:800;
+  }
   .offer-note{
     font-size:.88rem;color:var(--ink-soft);font-weight:600;
     font-style:italic;line-height:1.5;
@@ -551,8 +569,12 @@ src="https://www.facebook.com/tr?id=1826296912077931&ev=PageView&noscript=1"
       <!-- PŁATNY -->
       <div class="offer-card paid">
         <span class="offer-badge badge-paid">Pełna przygoda</span>
+        <a href="/materialy/podglad-jajo-nad-wodospadem.jpg" target="_blank" rel="noopener" class="offer-preview">
+          <img src="/materialy/podglad-jajo-nad-wodospadem.jpg" alt="Podgląd stron z pakietu Jajo nad wodospadem" loading="lazy">
+          <span class="offer-preview-hint">Kliknij, żeby powiększyć</span>
+        </a>
         <h3>Jajo nad wodospadem</h3>
-        <div class="price">20 zł <small>+ podatek / jednorazowo</small></div>
+        <div class="price">12 zł <small>+ podatek / jednorazowo</small></div>
         <ul class="offer-list">
           <li>Rozbudowana bajka „Jajo nad wodospadem" (15 stron) — o odwadze i sile współpracy</li>
           <li>Wersja „Czytam sam" tej samej historii — sylaby w kolorach, dla dzieci uczących się czytać</li>
@@ -560,7 +582,7 @@ src="https://www.facebook.com/tr?id=1826296912077931&ev=PageView&noscript=1"
           <li>20 kolorowanek ze scenami z przygody — 10 prostych i 10 rozbudowanych</li>
           <li>Nowi bohaterowie: Kola, Fru i Szyjka</li>
         </ul>
-        <a href="https://dzieciecaradosc.gumroad.com/l/jajo-nad-wodospadem" target="_blank" rel="noopener" class="btn btn-primary" onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Jajo nad wodospadem',value:20,currency:'PLN'});">Kup na Gumroad →</a>
+        <a href="https://dzieciecaradosc.gumroad.com/l/jajo-nad-wodospadem" target="_blank" rel="noopener" class="btn btn-primary" onclick="if(window.fbq)fbq('track','InitiateCheckout',{content_name:'Jajo nad wodospadem',value:12,currency:'PLN'});">Kup na Gumroad →</a>
       </div>
 
     </div>
